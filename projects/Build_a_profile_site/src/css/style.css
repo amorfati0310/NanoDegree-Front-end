@@ -5,27 +5,24 @@
 }*/
 
 /*settings*/
-*{
+* {
   box-sizing: border-box;
 }
-html{
+html {
   font-size: 16px;
 }
 body,h1,h2,p,ul,figure{
   margin: 0;
 }
-ul{
+ul {
   padding: 0;
 }
-li{
+li {
   list-style: none;
 }
 
 /**/
-body{
-  width: 100%;
-  min-height: 100vh;
-}
+
 /* header */
 .header{
   display: flex;
@@ -33,33 +30,33 @@ body{
   justify-content: space-between;
   border-bottom: 0.3em solid #7d97ad;
   /*padding-bottom: 1.2em;*/
-  height: 15vh;
+
 }
-.logo{
+.logo {
   display: block;
   width: 50%;
 }
-.text-box{
+.text-box {
   width: 50%;
 }
-.logo-heading,.logo-paragraph{
+.logo-heading,.logo-paragraph {
   text-align: right;
 }
 
 /* main */
 /* main-img */
-main{
-  height: 85vh;
+main {
+
   padding-top: 1.2em;
 }
-.main-img-box{
+.main-img-box {
   position: relative;
   width:100%;
   padding-top: 45vh;
-  height: 0;
+  height: auto;
   overflow: hidden;
 }
-.main-img{
+.main-img {
   position: absolute;
   top: 0;
   left: 0;
@@ -70,8 +67,8 @@ main{
 }
 
 /* feature-works */
-.feature-works{
-  height: 40vh;
+.feature-works {
+
   padding: 1.2em 0;
 }
 .feature-heading{
@@ -81,21 +78,21 @@ main{
   margin-bottom: 0.2em;
 }
 
-.feature-works-list{
+.feature-works-list {
   display: flex;
 }
-.feature-works-list li{
+.feature-works-list li {
   width: calc((100% - 2em)/3);
 
 }
-.feature-works-list p{
+.feature-works-list p {
   text-align: center;
   font-size: 1.8em;
   font-weight: bold;
 }
-.img-box{
+.img-box {
   width: 100%;
-  height: 0;
+  height: auto;
   padding-bottom: 66.6667%;
   position: relative;
   overflow: hidden;
@@ -114,4 +111,31 @@ figcaption {
   text-align: center;
   font-size: 0.8em;
   /*margin-bottom: 3em;*/
+}
+
+/*footer*/
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.5em;
+  line-height: 2.5em;
+  padding: 0 2em;
+  background-color: #fff;
+  color: #000;
+}
+
+.footer-item-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1em;
+}
+
+.contact-link-item {
+  display: inline-block;
+  margin-right: 0.5em;
+}
+.copyright{
+  margin-left: 2em;
 }
