@@ -63,7 +63,7 @@ export default {
         var templottoNumbers ={}
         templottoNumbers.numbers = lotto_number;
         templottoNumbers.index = this.index;
-
+        
         this.savedNumbers.push(templottoNumbers);
         localStorage.setItem(this.index, JSON.stringify(templottoNumbers))
         this.savedNumbersCount = localStorage.length;
