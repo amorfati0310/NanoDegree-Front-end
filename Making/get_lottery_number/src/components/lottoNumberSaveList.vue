@@ -3,7 +3,7 @@
     <div class="saved-lotto-number-box" v-if="savedNumbers.length">
         <ul class="saved-number-list">
             <li v-for=" (savedlottoNumber,index) in savedNumbers" class="saved-lotto-number">
-                <span v-for="lottoitems in savedlottoNumber.numbers">{{lottoitems}}</span>
+                <span class="saved-each-numbers"v-for="lottoitems in savedlottoNumber.numbers">{{lottoitems}}</span>
                 <!-- <span class="each-number">{{String(savedlottoNumber.numbers)}}</span> -->
                 <span class="btn-delete-lottonumber-icon" @click="deleteLottoNumbers(savedlottoNumber,savedlottoNumber.index,index)">
                   <i class="fa fa-trash-o" aria-hidden="true"></i>
@@ -65,7 +65,17 @@ export default {
 
 .saved-number-list
 
-.btn-delete-lottonumber-icon,
+
+.saved-each-numbers
+  display: inline-block
+  text-align: center
+  background-color: #f1561d
+  width: 1.5em
+  line-height: 1.5em
+  margin-right: 0.5em
+  border-radius: 50%
+
+.btn-delete-lottonumber-icon
   text-align: center
   display: inline-block
   width: 2em
