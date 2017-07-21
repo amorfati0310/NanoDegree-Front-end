@@ -18,4 +18,7 @@ export default {
     color: #fff
     text-align: center
     font-size: 2em
+    line-height: 2.2em
+    background-color: #722F21
+    height: 2.2em
 </style>
