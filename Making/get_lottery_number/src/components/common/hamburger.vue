@@ -1,5 +1,5 @@
 <template>
-  <transition name="modal">
+  <transition name="modal" >
     <div class="modal-mask" @keyup.esc="$emit('close')">
       <div class="modal-wrapper">
         <div class="modal-container">
@@ -36,17 +36,18 @@ export default {
   width: 100%
   height: 100%
   background-color: rgba(0, 0, 0, .5)
-  transition: opacity .3s ease
+  transition: all .3s ease
 
-
-.modal-container.active
-  transform: translate(0, 0)
-// .modal-wrapper
-//   display: table-cell
-//   vertical-align: middle
-
+.modal-wrapper
+  width: 100%
+  height: 100%
+  // background-color: rgba(0, 0, 0, .9)
+  transition: all 1s ease
+// .modal-container.active
+//   transform: translate(0, 0)
 
 .modal-container
+  z-index: 2000
   position: relative
   width: 80%
   height: 100vh
@@ -54,8 +55,6 @@ export default {
   background-color: #fff
   border-radius: 2px
   box-shadow: 0 2px 8px rgba(0, 0, 0, .33)
-  transform: translate(-%, 0)
-  transition: transform 0.3s ease
 
 
 .modal-footer
@@ -82,15 +81,21 @@ export default {
 //   right: 1em
 
 
-.modal-enter
-  opacity: 0
+.modal-enter, .modal-leave-to
 
-.modal-leave-active
-  opacity: 0
+  transform: translateX(-100%)
 
-.modal-enter .modal-container,
-.modal-leave-active .modal-container
-  -webkit-transform: scale(1.1)
-  transform: scale(1.1)
+.modal-enter-to, .modal-leave
+  transform: translate(0,0)
+
+.modal-enter-active,.modal-leave-active
+  transition: all .3s ease
+
+.modal-wrapper-enter
+  opacity: 0
+.modal-wrapper-enter-to
+  opacity: 1
+// .modal-wrapper-enter-active
+//   transition: all 2.8s ease
 
 </style>

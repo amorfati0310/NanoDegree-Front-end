@@ -1,7 +1,7 @@
 <template>
 
   <nav class="lotto-menu">
-    <Hamburger  v-if="showOtherMenu" @close="showOtherMenu=false">
+    <Hamburger  v-show="showOtherMenu" @close="showOtherMenu=false">
       <nav slot="header">
         <ul>
           <li><a href="#">수동으로 사기</a></a></li>
