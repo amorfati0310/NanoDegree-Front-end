@@ -61,9 +61,9 @@ export default {
         this.index++;
         var lotto_number = this.lottoNumbers;
         var templottoNumbers ={}
-        templottoNumbers.numbers = lotto_number;
+        templottoNumbers.numbers = lotto_number.sort(function(a,b){return a-b});
         templottoNumbers.index = this.index;
-        
+
         this.savedNumbers.push(templottoNumbers);
         localStorage.setItem(this.index, JSON.stringify(templottoNumbers))
         this.savedNumbersCount = localStorage.length;
