@@ -3,10 +3,10 @@
   <nav class="lotto-menu">
     <Hamburger  v-show="showOtherMenu" @close="showOtherMenu=false">
       <nav slot="header">
-        <ul>
-          <li><a href="#">수동으로 사기</a></a></li>
-          <li><a href="#">사러가기</a></li>
-          <li><a href="#">지난 당첨번호들 조회</a></li>
+        <ul class="other-menu-list">
+          <li class="other-menu-list-item"><a href="#">수동으로 번호 뽑기</a></li>
+          <li class="other-menu-list-item"><a href="#">사러가기</a></li>
+          <li class="other-menu-list-item"><a href="#">지난 당첨번호들 조회</a></li>
         </ul>
       </nav>
       <span slot="footer" @click="showOtherMenu = false">
@@ -68,6 +68,21 @@ export default {
 </script>
 
 <style lang="sass">
+
+
+// other menu
+.other-menu-list
+  padding: 1em
+
+.other-menu-list-item
+  line-height: 2em
+  margin-bottom: 1em
+  border-bottom: 1px solid #181818
+  & a
+      color: #181818
+      text-decoration: none
+//
+
 .lotto-menu
 
 .make-number-icon
