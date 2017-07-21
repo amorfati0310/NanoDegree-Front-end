@@ -1,12 +1,15 @@
 <template>
   <div id="app">
     <lottoHeader></lottoHeader>
-    <lottoNumberSetting v-on:makeLottoNumber="makeLottoNumber" v-on:saveLottoNumber="saveLottoNumber"></lottoNumberSetting>
+    <lottoNumberSetting v-on:makeLottoNumber="makeLottoNumber" v-on:saveLottoNumber="saveLottoNumber"
+      v-on:watchWinningNumbers="watchWinningNumbers"
+    ></lottoNumberSetting>
     <lottoNumberList :giveLottoNumber="lottoNumbers"></lottoNumberList>
     <lottoNumberSaveList :savedNumbers="savedNumbers" v-on:deleteLottoNumbers="deleteLottoNumbers"
      v-on:allCLear="allCLear" :savedNumbersCount="savedNumbersCount"
     ></lottoNumberSaveList>
     <gotoBuyLotto></gotoBuyLotto>
+    <lastWinning v-if="showLastNumber" :lastWinningNumberdata="lastWinningNumberdata"></lastWinning>
     <lottoFooter></lottoFooter>
   </div>
 </template>
@@ -18,6 +21,7 @@ import lottoNumberList from './components/lottoNumberList.vue'
 import lottoNumberSaveList from './components/lottoNumberSaveList.vue'
 import lottoFooter from './components/lottoFooter.vue'
 import gotoBuyLotto from './components/goToBuyLotto.vue'
+import lastWinning from './components/lastWinningNumber.vue'
 
 export default {
   name: 'app',
@@ -27,8 +31,9 @@ export default {
       lottoNumbers:[],
       savedNumbers:[],
       index:0,
-      savedNumbersCount: localStorage.length
-
+      savedNumbersCount: localStorage.length,
+      showLastNumber: false,
+      lastWinningNumberdata:[]
     }
   },
   components: {
@@ -37,7 +42,8 @@ export default {
     lottoNumberList: lottoNumberList,
     lottoNumberSaveList: lottoNumberSaveList,
     lottoFooter: lottoFooter,
-    gotoBuyLotto: gotoBuyLotto
+    gotoBuyLotto: gotoBuyLotto,
+    lastWinning: lastWinning
   },
   methods: {
     makeLottoNumber() {
@@ -85,9 +91,6 @@ export default {
       console.log(this.savedNumbers);
       localStorage.removeItem(localIndex);
       this.savedNumbers.splice(appdataIndex, 1);
-
-      // 3번째 인덱스를 삭제했을 때 index값은 2가 나옴
-      //
       this.savedNumbersCount = localStorage.length;
     },
     allCLear(){
@@ -95,6 +98,15 @@ export default {
       localStorage.clear();
       this.index = 0;
     },
+    watchWinningNumbers(){
+      var _this =this;
+      this.showLastNumber = true;
+      this.$http.get('http://www.nlotto.co.kr/common.do?method=getLottoNumber&drwNo=')
+          .then((result)=>{
+            console.log(result);
+            _this.lastWinningNumberdata.push(result.data);
+          })
+    }
   },
     watch: {
      savedNumbers: {
