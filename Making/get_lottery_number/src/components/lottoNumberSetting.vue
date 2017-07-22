@@ -1,14 +1,14 @@
 <template>
 
   <nav class="lotto-menu">
-    <Hamburger  v-show="showOtherMenu" @close="showOtherMenu=false">
-      <nav slot="header">
-        <ul class="other-menu-list">
-          <li class="other-menu-list-item"><a href="#">수동으로 번호 뽑기</a></li>
-          <li class="other-menu-list-item"><a href="#">사러가기</a></li>
-          <li class="other-menu-list-item" @click="watchWinningNumbers"><a href="#">지난 당첨번호들 조회</a></li>
-        </ul>
-      </nav>
+    <Hamburger  v-show="showOtherMenu">
+        <nav slot="header">
+          <ul class="other-menu-list">
+            <li class="other-menu-list-item"><a href="#">수동으로 번호 뽑기</a></li>
+            <li class="other-menu-list-item"><a href="#">사러가기</a></li>
+            <li class="other-menu-list-item" @click="watchWinningNumbers"><a href="#">지난 당첨번호들 조회</a></li>
+          </ul>
+        </nav>
       <span slot="footer" @click="showOtherMenu = false">
         <i class="closeModalBtn fa fa-times" aria-hidden="true"></i>
       </span>
@@ -61,7 +61,7 @@ export default {
       this.showOtherMenu=true
     },
     watchWinningNumbers(){
-      this.showOtherMenu=true  
+      this.showOtherMenu= false
       this.$emit("watchWinningNumbers")
     }
   },
@@ -129,4 +129,10 @@ export default {
 
 .btn-save-lottonumber-icon
   background-color: #E65100
+
+
+.closeModalBtn
+  padding: 1em
+  background-color: #181818
+  color: #eee
 </style>

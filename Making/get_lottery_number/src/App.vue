@@ -9,7 +9,11 @@
      v-on:allCLear="allCLear" :savedNumbersCount="savedNumbersCount"
     ></lottoNumberSaveList>
     <gotoBuyLotto></gotoBuyLotto>
-    <lastWinning v-if="showLastNumber" :lastWinningNumberdata="lastWinningNumberdata"></lastWinning>
+    <lastWinning v-if="showLastNumber"
+    :lastWinningNumberdata="lastWinningNumberdata"
+    v-on:gotoMain="gotoMain"
+    v-on:previousSearching="previousSearching"
+    ></lastWinning>
     <lottoFooter></lottoFooter>
   </div>
 </template>
@@ -104,7 +108,21 @@ export default {
       this.$http.get('http://www.nlotto.co.kr/common.do?method=getLottoNumber&drwNo=')
           .then((result)=>{
             console.log(result);
-            _this.lastWinningNumberdata.push(result.data);
+            _this.lastWinningNumberdata = result.data;
+          })
+    },
+    gotoMain(){
+        this.lastWinningNumberdata = [];
+        this.showLastNumber = false;
+    },
+    previousSearching(nowInning){
+      var _this =this;
+      console.log('프롭스',nowInning);
+      this.showLastNumber = true;
+      this.$http.get(`http://www.nlotto.co.kr/common.do?method=getLottoNumber&drwNo=`+nowInning)
+          .then((result)=>{
+            console.log(result);
+            _this.lastWinningNumberdata = result.data;
           })
     }
   },
