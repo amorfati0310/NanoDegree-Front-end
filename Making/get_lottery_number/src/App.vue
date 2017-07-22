@@ -14,6 +14,7 @@
     v-on:gotoMain="gotoMain"
     v-on:previousSearching="previousSearching"
     v-on:nextSearching="nextSearching"
+    v-on:searchingThis="searchingThis"
     ></lastWinning>
     <lottoFooter></lottoFooter>
   </div>
@@ -79,7 +80,6 @@ export default {
         localStorage.setItem(this.index, JSON.stringify(templottoNumbers))
         this.savedNumbersCount = localStorage.length;
         //로컬스토리지 덮어 쓴다.
-
     },
     shuffle(items,n){
       while (n--) {
@@ -117,11 +117,14 @@ export default {
         this.showLastNumber = false;
     },
     previousSearching(nowInning){
-      this.showLastNumber = true;
+      // this.showLastNumber = true;
       this.getLottoData(nowInning);
     },
     nextSearching(nowInning){
-      this.showLastNumber = true;
+      // this.showLastNumber = true;
+      this.getLottoData(nowInning);
+    },
+    searchingThis(nowInning){
       this.getLottoData(nowInning);
     },
     getLottoData(inning){

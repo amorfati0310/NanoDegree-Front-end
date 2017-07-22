@@ -2,15 +2,6 @@
   <section class="last-number-box">
     <h2 class="last-number-heading">지난 당첨번호들</h2>
     <ul class="lastwinning-list">
-      <!-- <li class="lastwinning-list-item" v-for="(lastwinningnumber, index) in lastWinningNumberdata"> -->
-      <!-- <span class="last-win-inning">{{lastwinningnumber.drwNo}} 회</span>
-      <span class="last-win-each-number">{{lastwinningnumber.drwtNo1}}</span>
-      <span class="last-win-each-number">{{lastwinningnumber.drwtNo2}}</span>
-      <span class="last-win-each-number">{{lastwinningnumber.drwtNo3}}</span>
-      <span class="last-win-each-number">{{lastwinningnumber.drwtNo4}}</span>
-      <span class="last-win-each-number">{{lastwinningnumber.drwtNo5}}</span>
-      <span class="last-win-each-number">{{lastwinningnumber.drwtNo6}}</span>
-    </li> -->
       <li class="lastwinning-list-item" >
         <span class="last-win-inning">{{lastWinningNumberdata.drwNo}} 회</span>
         <span class="last-win-each-number">{{lastWinningNumberdata.drwtNo1}}</span>
@@ -25,7 +16,7 @@
       <span class="btn-previous-lastwinning" @click="previousSearching(lastWinningNumberdata.drwNo)">
         <i class="fa fa-caret-left" aria-hidden="true"></i>
       </span>
-      <input class="search-inning" type="text" placeholder="알고 싶은 회차를 입력하세요 ">
+      <input @keyup.enter="searchingThis(nowInning)" class="search-inning" type="text" v-model="nowInning" placeholder="알고 싶은 회차를 입력하세요">
       <span class="btn-next-lastwinning" @click="nextSearching(lastWinningNumberdata.drwNo)">
         <i class="fa fa-caret-right" aria-hidden="true"></i>
       </span>
@@ -57,6 +48,10 @@ export default {
 
       nowinning++;
       this.$emit('nextSearching',nowinning)
+    },
+    searchingThis(nowinning){
+      this.$emit('searchingThis',nowinning)
+      this.nowInning="";
     }
   }
 }
