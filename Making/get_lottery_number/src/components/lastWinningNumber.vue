@@ -25,9 +25,9 @@
       <span class="btn-previous-lastwinning" @click="previousSearching(lastWinningNumberdata.drwNo)">
         <i class="fa fa-caret-left" aria-hidden="true"></i>
       </span>
-      <input type="text">
-      <span class="btn-next-lastwinning">
-        <i class="fa fa-caret-right" aria-hidden="true" @click="nextSearching"></i>
+      <input class="search-inning" type="text" placeholder="알고 싶은 회차를 입력하세요 ">
+      <span class="btn-next-lastwinning" @click="nextSearching(lastWinningNumberdata.drwNo)">
+        <i class="fa fa-caret-right" aria-hidden="true"></i>
       </span>
     </div>
     <div class="go-to-main-box">
@@ -41,7 +41,8 @@ export default {
   props:['lastWinningNumberdata'],
   data: function data() {
     return {
-      nowInning:''
+      nowInning:'',
+      recentInning:''
     }
   },
   methods: {
@@ -53,9 +54,9 @@ export default {
       this.$emit('previousSearching',nowinning)
     },
     nextSearching(nowinning){
-      
+
       nowinning++;
-      this.$emit('previousSearching',nowinning)
+      this.$emit('nextSearching',nowinning)
     }
   }
 }
@@ -94,10 +95,17 @@ export default {
 //searchingbox
 .lastwinning-searching-box
   margin-top: 2em
-  height: 2em
+  height: 2.5em
   display: flex
   justify-content: center
   align-items: center
+
+.search-inning
+  border-style: none
+  font-size: 0.9rem
+  width: 50%
+  text-align: center
+  line-height: 2.5em
 
 .btn-previous-lastwinning, .btn-next-lastwinning
   width: 1.5em

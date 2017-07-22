@@ -76,6 +76,7 @@ export default {
 
 // other menu
 .other-menu-list
+  margin-top: 2.5em
   padding: 1em
 
 .other-menu-list-item
