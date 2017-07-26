@@ -1,0 +1,35 @@
+/*
+break point refer to bootstrap
+
+ xs<768
+768<==small<991
+container 750px
+
+
+992>=Desktop
+container 970px
+
+wide>= 1200
+containter 1170px
+
+*/
+
+
+@media screen and (max-width: 650px){
+
+  .feature-works-list li{
+    max-width: 100%;
+    margin: 0 auto;
+  }
+}
+  @media screen and (min-width: 651px){
+
+  .feature-works-list {
+    display: flex;
+    justify-content: space-between;
+  }
+  .feature-works-list li {
+    max-width: calc((100% - 2rem)/3);
+  }
+
+}

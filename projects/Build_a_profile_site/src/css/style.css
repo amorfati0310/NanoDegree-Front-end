@@ -5,6 +5,7 @@
 }*/
 
 /*settings*/
+
 * {
   box-sizing: border-box;
 }
@@ -22,25 +23,38 @@ li {
 }
 
 /**/
+body{
+  /*min-width: 300px;*/
+}
+/*container*/
+.container{
+  max-width: 750px;
+  min-width: 300px;
+  margin: 0 auto;
+}
 
 /* header */
 .header{
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 0.3em solid #7d97ad;
+  border-bottom: 2px solid #7d97ad;
+  height: 20vh;
+
   /*padding-bottom: 1.2em;*/
 
 }
 .logo {
-  display: block;
-  width: 50%;
+
 }
 .text-box {
-  width: 50%;
+  text-align: right;
 }
 .logo-heading,.logo-paragraph {
-  text-align: right;
+
+}
+.logo-heading{
+  /*font-size: 2em;*/
 }
 
 /* main */
@@ -48,46 +62,33 @@ li {
 main {
 
   padding-top: 1.2em;
+  height: 80vh;
 }
+
 .main-img-box {
-  position: relative;
-  width:100%;
-  padding-top: 45vh;
+
+  max-width: 100%; /* 이미지의 최대사이즈 */
+  width /***/: auto; /* IE8 */
   height: auto;
-  overflow: hidden;
+  vertical-align: bottom;
 }
 .main-img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  min-width: 100%;
-  height: 100%;
-  /*margin-top: 1.2em;
-  margin-bottom: 1.2em;*/
+  max-width: 100%; /* 이미지의 최대사이즈 */
+  width /***/: auto; /* IE8 */
+  height: auto;
+  vertical-align: bottom;
 }
 
 /* feature-works */
-.feature-works {
 
-  padding: 1.2em 0;
-}
 .feature-heading{
   color: #7d97ad;
-  font-size: 1.8em;
-  margin-left: 0.2em;
-  margin-bottom: 0.2em;
+  margin-left: 0.2rem;
+  margin-bottom: 0.2rem;
 }
 
-.feature-works-list {
-  display: flex;
-}
-.feature-works-list li {
-  width: calc((100% - 2em)/3);
-
-}
 .feature-works-list p {
   text-align: center;
-  font-size: 1.8em;
   font-weight: bold;
 }
 .img-box {
@@ -98,7 +99,7 @@ main {
   overflow: hidden;
 }
 .figrue-item-margin{
-  margin-right: 1em;
+  margin-right: 1rem;
 }
 figure img {
   min-width: 100%;
@@ -109,32 +110,32 @@ figure img {
 }
 figcaption {
   text-align: center;
-  font-size: 0.8em;
-  /*margin-bottom: 3em;*/
+  font-size: 0.8rem;
 }
 
+
+
+
+
+
 /*footer*/
-.footer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 2.5em;
-  line-height: 2.5em;
-  padding: 0 2em;
+
+footer {
+  height: 4em;
+  line-height: 4em;
+  padding: 2em;
   background-color: #fff;
   color: #000;
+  text-align: center;
 }
 
 .footer-item-list {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1em;
 }
-
-.contact-link-item {
+.contact-link-item{
   display: inline-block;
-  margin-right: 0.5em;
 }
 .copyright{
   margin-left: 2em;
