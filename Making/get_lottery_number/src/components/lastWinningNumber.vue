@@ -2,7 +2,7 @@
   <section class="last-number-box">
     <h2 class="last-number-heading">지난 당첨번호들</h2>
     <ul class="lastwinning-list">
-      <li class="lastwinning-list-item" >
+      <li class="lastwinning-list-item">
         <span class="last-win-inning">{{lastWinningNumberdata.drwNo}} 회</span>
         <span class="last-win-each-number">{{lastWinningNumberdata.drwtNo1}}</span>
         <span class="last-win-each-number">{{lastWinningNumberdata.drwtNo2}}</span>
@@ -16,7 +16,7 @@
       <span class="btn-previous-lastwinning" @click="previousSearching(lastWinningNumberdata.drwNo)">
         <i class="fa fa-caret-left" aria-hidden="true"></i>
       </span>
-      <input @keyup.enter="searchingThis(nowInning)" class="search-inning" type="text" v-model="nowInning" placeholder="알고 싶은 회차를 입력하세요">
+      <input @keyup.enter="searchingThis(nowInning)" class="search-inning" type="text" v-model="nowInning" placeholder="알고 싶은 회차를 입력하세요(번호만:D)">
       <span class="btn-next-lastwinning" @click="nextSearching(lastWinningNumberdata.drwNo)">
         <i class="fa fa-caret-right" aria-hidden="true"></i>
       </span>
@@ -98,7 +98,7 @@ export default {
 .search-inning
   border-style: none
   font-size: 0.9rem
-  width: 50%
+  width: 65%
   text-align: center
   line-height: 2.5em
 

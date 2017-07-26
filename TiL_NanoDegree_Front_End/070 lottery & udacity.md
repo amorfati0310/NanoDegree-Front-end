@@ -38,6 +38,30 @@ app.vue에서 data vinding을 해줘서. 컴포넌트로 내려주면 해결 될
 
 
 
+## 예전 번호들 긁어오기
+
+api 그냥 다른 서비스 쓸 떄 사용 설명서 
+
+api.google.com 
+
+google map api 
+
+
+
+외부 데이터 
+
+외부 기능 
+
+
+
+처음에 검색으로 긁어온다 생각했는데 로또 api가 검색해보니 따로 있었다. 
+
+
+
+모달로 로또 api가져오기 
+
+
+
 
 
 
@@ -114,6 +138,88 @@ When using `srcset`, we need to also use `sizes` to truly optimize the requests.
 
 
 [lesson](https://classroom.udacity.com/courses/ud882/lessons/3574748851/concepts/39896486020923#)
+
+
+
+srcset 1배율 2배율 ->>>
+
+
+
+요기 잘 모르겠다.. size  33.3333vw로 하면 되지 않으려나 margin도 줘야 되는데  어떻게 하지 
+
+
+
+### footer linkedin, github 등을 포함시켜라 
+
+
+
+###  
+
+###  {} brackket 띄어쓰기 !!
+
+### height set auto or 없애라
+
+### img css 폴더 따로 관리해라 
+
+
+
+### 미디어쿼리를 이용해서 리디자인 할 것 
+
+
+
+미디어쿼리 가이드라인이 없어서 그냥 떨구면 되는 것인가 
+
+글자 크기를 줄일 것인가 ... 
+
+무난한 글자 크기를 줄이는 방향으로 가보자 ㅁ
+
+
+
+412
+
+5x 모바일에서 텍스트가 겹치는 문제 
+
+해결 방안 텍스트 사이즈를 줄이거나.. 개행시키거나 
+
+
+
+아래 왤케 빈공간이 남지..
+
+
+
+ipad 
+
+
+
+ipad pro 
+
+
+
+desktop 기준으로도 다 문제 
+
+
+
+
+
+
+
+### JS Loops 
+
+
+
+14. quiz  다시 풀기 팩토리얼 
+
+ 15.
+
+16.
+
+
+
+argument 와 parameter차이 
+
+파라미터는 정의 하는 것이고 
+
+arguments는 실제 대응하는 값들 
 
 
 
