@@ -61,7 +61,7 @@ export default {
   position: absolute
   top: 4.4em
   width: 100%
-  min-height: 80vh
+  min-height: 90vh
   background-color: #ffF
 
 .last-number-heading
