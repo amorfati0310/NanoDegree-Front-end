@@ -11,6 +11,8 @@
     <gotoBuyLotto></gotoBuyLotto>
     <lastWinning v-if="showLastNumber"
     :lastWinningNumberdata="lastWinningNumberdata"
+    :recentInning="recentInning"
+
     v-on:gotoMain="gotoMain"
     v-on:previousSearching="previousSearching"
     v-on:nextSearching="nextSearching"
@@ -39,7 +41,8 @@ export default {
       index:0,
       savedNumbersCount: localStorage.length,
       showLastNumber: false,
-      lastWinningNumberdata:[]
+      lastWinningNumberdata:[],
+      recentInning:''
     }
   },
   components: {
@@ -110,6 +113,7 @@ export default {
           .then((result)=>{
             // console.log(result);
             _this.lastWinningNumberdata = result.data;
+            _this.recentInning = result.data.drwNo;
           })
     },
     gotoMain(){

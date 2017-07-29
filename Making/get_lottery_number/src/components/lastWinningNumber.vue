@@ -13,11 +13,11 @@
       </li>
     </ul>
     <div class="lastwinning-searching-box">
-      <span class="btn-previous-lastwinning" @click="previousSearching(lastWinningNumberdata.drwNo)">
+      <span class="btn-previous-lastwinning" @click="previousSearching(lastWinningNumberdata.drwNo)" v-if="allowPrevious">
         <i class="fa fa-caret-left" aria-hidden="true"></i>
       </span>
       <input @keyup.enter="searchingThis(nowInning)" class="search-inning" type="text" v-model="nowInning" placeholder="알고 싶은 회차를 입력하세요(번호만:D)">
-      <span class="btn-next-lastwinning" @click="nextSearching(lastWinningNumberdata.drwNo)">
+      <span class="btn-next-lastwinning" @click="nextSearching(lastWinningNumberdata.drwNo)" v-if="allowNext">
         <i class="fa fa-caret-right" aria-hidden="true"></i>
       </span>
     </div>
@@ -29,29 +29,56 @@
 <script>
 export default {
   name: "",
-  props:['lastWinningNumberdata'],
+  props:['lastWinningNumberdata','recentInning'],
   data: function data() {
     return {
       nowInning:'',
-      recentInning:''
+      allowNext: false,
+      allowPrevious: true,
     }
+  },
+  updated() {
+    var nowinning = this.lastWinningNumberdata.drwNo
+    this.ableNext(nowinning);
+    this.ablePrevious(nowinning);
   },
   methods: {
     gotoMain() {
       this.$emit('gotoMain');
     },
     previousSearching(nowinning){
-      nowinning--;
-      this.$emit('previousSearching',nowinning)
+
+      if(this.allowPrevious){
+        nowinning--;
+        this.$emit('previousSearching',nowinning)
+      }
     },
     nextSearching(nowinning){
-
-      nowinning++;
-      this.$emit('nextSearching',nowinning)
+    
+      if(this.allowNext){
+        nowinning++;
+        this.$emit('nextSearching',nowinning)
+      }
     },
     searchingThis(nowinning){
       this.$emit('searchingThis',nowinning)
       this.nowInning="";
+    },
+    ableNext(nowinning){
+      if(nowinning!==this.recentInning){
+          this.allowNext = true
+      }
+      else{
+        this.allowNext = false
+      }
+    },
+    ablePrevious(nowinning){
+      if(nowinning>1){
+        this.allowPrevious = true
+      }
+      else{
+        this.allowPrevious = false
+      }
     }
   }
 }
